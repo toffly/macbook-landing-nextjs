@@ -1,6 +1,14 @@
 import {create} from "zustand/react";
 
-const useMacbookStore = create((set) => ({
+interface MacbookStore {
+     color: string;
+     scale: number;
+     setColor: (color: string) => void;
+     setScale: (scale: number) => void;
+     reset: () => void;
+    }
+
+const useMacbookStore = create<MacbookStore>((set) => ({
     color: '#2e2c2e',
     setColor: (color) => set({color}),
 
